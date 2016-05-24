@@ -9,7 +9,7 @@ import java.util.*;
 /**
  * Created by zgao on 8/3/2015.
  */
-public class SignaturGenerator {
+public class SignaturGenerator_getCodeList {
     public static void main(String args[]) {
         // signature for create code request
         //
@@ -23,7 +23,7 @@ public class SignaturGenerator {
         String encoded_sig = null;
         try {
             // Createcode service url for your reference
-            String url = "http://api.scanlife.com/api/code/createcode";
+            String url = "http://api.scanlife.com/api/code/getcodelist";
             // parameters append after the url. we are generating signature
             // using this parameters and secretyKey
             String queryString = "codename=test&codetype=web&apikey=" + apiKey;
@@ -33,33 +33,7 @@ public class SignaturGenerator {
 
             // sortedmap using for sort the param name and storing also.
             SortedMap<String, String> sortedParamMap = new TreeMap<String, String>();
-            sortedParamMap.put("codename", "qrTest12");
-            sortedParamMap.put("codetype", "contact");
-            sortedParamMap.put("firstname", "Goran");
-            sortedParamMap.put("lastname", "Dobrijevic");
-            sortedParamMap.put("company", "Netcare Limited");
-            sortedParamMap.put("jobtitle", "Pharmacy Medical Scheme Manager");
-            sortedParamMap.put("officephonenumber", "+27-11-301-0392");
-            sortedParamMap.put("mobilenumber", "+27-82-522-0697");
-            //sortedParamMap.put("faxnumber", "+27-86-573-6796");
-            sortedParamMap.put("primaryemail", "Goran.Dobrijevic@netcare.co.za");
-            sortedParamMap.put("website", "http://www.netcare.co.za");
-            sortedParamMap.put("primaryaddress", "Netcare Limited\n" +
-                    "=Head Office\n" +
-                    "v Maude Street\n" +
-                    "=Cnr West\n" +
-                    "=Sandton\n" +
-                    "Johanesburg  Gauteng\n" +
-                    "2196  South Africa");
-            sortedParamMap.put("compactQr", "true");
-            //sortedParamMap.put("compactQRBarcodeSize","a");
-            sortedParamMap.put("compactQRConfigName", "compactdatatest12");
-            sortedParamMap.put("compactQRImageFormatId", "b");
-            sortedParamMap.put("compactQRResolution", "c");
-            //sortedParamMap.put("compactQRBarcodeWidthReduction","d");
-            sortedParamMap.put("compactQRMeasurementUnit", "1");
-            sortedParamMap.put("compactQRQuietSpace", "f");
-            //sortedParamMap.put("compactQRcolor","g");
+            sortedParamMap.put("userid", "5");
 
 
             // // added url parameter
@@ -112,7 +86,7 @@ public class SignaturGenerator {
             System.out.println("signature=" + signature);
 
             // after create signature createcode request like following
-            System.out.println("http://localhost/api/code/createcode?"
+            System.out.println("http://localhost/api/code/getcodelist?"
                     + buffer.toString() + "&signature="
                     + URLEncoder.encode(signature, "UTF-8"));
 
